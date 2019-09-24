@@ -7,10 +7,8 @@ def add_constant_index_level(df: pd.DataFrame, value: None, level_name=str):
 
 def flatten_cols(df: pd.DataFrame, delim: str = ';'):
     new_cols = [delim.join((col_lev for col_lev in tup if col_lev)) for tup in df.columns.values]
-    
     ndf = df.copy()
     ndf.columns = new_cols
-    
     return ndf
 
 
