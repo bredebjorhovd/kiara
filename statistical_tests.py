@@ -5,8 +5,8 @@ from scipy.stats import sem
 from scipy.stats import t
 from scipy import stats
 
-def independent_t_test(data1, data2, alpha):
 
+def independent_t_test(data1, data2, alpha):
     mean1, mean2 = mean(data1), mean(data2)
     # standard error
     se1, se2 = sem(data1), sem(data2)
@@ -27,6 +27,7 @@ def independent_t_test(data1, data2, alpha):
         print('Accept')
     return t_stat, df, cv, p
 
+
 def welch_t_test(data1, data2):
     """
     t, df, p = welch_t_test(data1, data2)
@@ -40,8 +41,8 @@ def welch_t_test(data1, data2):
     t = (mu1 - mu2) / np.sqrt(var1 / n1 + var2 / n2)
     df = (var1 / n1 + var2 / n2)**2 / (var1**2 / (n1**2 * (n1 - 1)) + var2**2 / (n2**2 * (n2 - 1)))
     p = 2 * stats.t.cdf(-abs(t), df)
-    
     return t, df, p
+
 
 def p_value_interpreter(p, alpha):
     """ Usage:
